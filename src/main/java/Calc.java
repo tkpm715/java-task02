@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class Calc {
-  private String outStr;
+
   private String calcType;
 
   private int baseNum;
@@ -14,20 +16,20 @@ public class Calc {
     this.calcType = calcType;
   }
 
-  public String getOutStr() {
-    return outStr;
-  }
+  public int runCalc() throws IOException {
+    int calcResult = 0; //計算結果格納
 
-  public void runCalc() {
-    long calcResult = 0; //計算結果格納
     for (int i = 0; i < timesCount; i++) {
       if (calcType.equals("1")) {
         calcResult += baseNum; // 足し算の場合
-      } else {
+      } else if (calcType.equals("2")) {
         calcResult -= baseNum; //引き算の場合
+      } else {
+        throw new IOException("１または２以外が入力されました。終了します。");
       }
     }
-    this.outStr = String.valueOf(calcResult);
+
+    return calcResult;
   }
 }
 
