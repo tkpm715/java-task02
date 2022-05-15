@@ -19,15 +19,15 @@ public class Calc {
   }
 
   public void runCalc() {
-    long calcResult = 0;
+    long calcResult = 0; //計算結果格納
     for (int i = 0; i < timesCount; i++) {
       if (calcType.equals("1")) {
-        calcResult += baseNum;
+        calcResult += baseNum; // 足し算の場合
       } else {
-        calcResult -= baseNum;
+        calcResult -= baseNum; //引き算の場合
       }
     }
-    this.outStr = "結果は" + calcResult + "です";
+    this.outStr = String.valueOf(calcResult);
   }
 }
 
