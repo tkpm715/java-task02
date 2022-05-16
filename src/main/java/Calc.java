@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Calc {
 
   private String calcType;
@@ -16,7 +14,7 @@ public class Calc {
     this.calcType = calcType;
   }
 
-  public int runCalc() throws IOException {
+  public int runCalc() throws Exception {
     int calcResult = 0; //計算結果格納
 
     for (int i = 0; i < timesCount; i++) {
@@ -25,7 +23,7 @@ public class Calc {
       } else if (calcType.equals("2")) {
         calcResult -= baseNum; //引き算の場合
       } else {
-        throw new IOException("１または２以外が入力されました。終了します。");
+        throw new Exception("１または２以外が入力されました。終了します。");
       }
     }
 
